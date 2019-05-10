@@ -1,6 +1,8 @@
 PY-KSC
 ======
 
+**This project is forked from flaviovdf/pyksc and is adapted to run with Python 3.**
+
 Implementation of the KSC time series clustering algorithm.
 See [1]_ for details:
 

@@ -24,7 +24,7 @@ def main(tseries_fpath, in_folder):
     agree = 0
     diff = 0
     
-    for i in xrange(num_folders):
+    for i in range(num_folders):
 
         base_i = os.path.dirname(folders[i])
         Ci = np.loadtxt(os.path.join(folders[i], 'cents.dat'))
@@ -32,7 +32,7 @@ def main(tseries_fpath, in_folder):
         train_i = np.loadtxt(os.path.join(base_i, 'train.dat'), dtype='bool')
         assign_i = np.loadtxt(os.path.join(folders[i], 'assign.dat'))
 
-        for j in xrange(i, num_folders):
+        for j in range(i, num_folders):
 
             base_j = os.path.dirname(folders[j])    
             Cj = np.loadtxt(os.path.join(folders[j], 'cents.dat'))
@@ -43,7 +43,7 @@ def main(tseries_fpath, in_folder):
             train_j = np.loadtxt(os.path.join(base_j, 'train.dat'), dtype='bool')    
             assign_j = np.loadtxt(os.path.join(folders[j], 'assign.dat'))
             
-            for k in xrange(argsrt.shape[0]):
+            for k in range(argsrt.shape[0]):
                 first = True
                 for o in argsrt[k]:
                     ids_k = set(ids[train_i][assign_i == k])

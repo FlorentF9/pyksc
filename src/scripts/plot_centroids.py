@@ -29,7 +29,7 @@ def main(tseries_fpath, k, plot_foldpath):
 
     cent, assign, shift, dists_cent = ksc.inc_ksc(X, k)
     
-    for i in xrange(cent.shape[0]):
+    for i in range(cent.shape[0]):
         t_series = cent[i]
         
         plt.plot(t_series, '-k')

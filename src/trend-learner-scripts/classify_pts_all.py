@@ -39,7 +39,7 @@ def main(tseries_fpath, train_fpath, test_fpath, ytrain_fpath, ytest_fpath, out_
     for num_pts in range(1, max_pts + 1):
         y_pred, probs = fit(Xtrain, y_train, Xtest, num_pts)
 
-        for i in xrange(Xtest.shape[0]):
+        for i in range(Xtest.shape[0]):
             p_true = probs[i, y_true[i]]
             if best_by[i] == 0 and y_pred[i] == y_true[i] and p_true > lousy_conf:
                 best_by[i] = num_pts

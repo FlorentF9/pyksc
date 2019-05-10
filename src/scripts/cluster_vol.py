@@ -31,7 +31,7 @@ def main(features_fpath, classes_fpath, tseries_fpath):
     num_clusters = len(set(y))
 
 
-    for k in xrange(num_clusters):
+    for k in range(num_clusters):
         print(k, end='\t')
         M = X[y == k]
 

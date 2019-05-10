@@ -46,13 +46,13 @@ def main(features_fpath, classes_fpath, user_users=False):
     to_compare = load_text_file(features_fpath, classes, user_users)
     
     print(end='\t')
-    for i in xrange(num_classes):
+    for i in range(num_classes):
         print(i, end='\t')
     print()
     
-    for j in xrange(num_classes):
+    for j in range(num_classes):
         print(j, end='\t')
-        for i in xrange(num_classes):
+        for i in range(num_classes):
             
             first_set = to_compare[i]
             second_set = to_compare[j]

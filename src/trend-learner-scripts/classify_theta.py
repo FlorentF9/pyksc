@@ -34,7 +34,7 @@ def pred(probs_folder, num_series, max_pts, min_pts, thetas):
         curr_pred = P.argmax(axis=1)
         curr_score = P.max(axis=1)
 
-        for i in xrange(num_series):
+        for i in range(num_series):
             score = curr_score[i]
             curr_cls = curr_pred[i]
             
@@ -70,7 +70,7 @@ def aux_print(X, peak_days, sum_views, best_by, y_true, y_pred, confs,
     confs = confs[idx]
 
     left_frac = np.zeros(X.shape[0])
-    for i in xrange(X.shape[0]):
+    for i in range(X.shape[0]):
         left_frac[i] = \
                 (sum_views[i] - X[i][:best_by[i]].sum()) / sum_views[i]
     
@@ -170,7 +170,7 @@ def get_params(folder, threshold, max_k):
     
     thetas = {}
     min_pts = {}
-    for i in xrange(2, P.shape[1]):
+    for i in range(2, P.shape[1]):
         fpath = os.path.join(folder, 'probs', 'probs-%d-pts.dat' % i)
         Pi = np.loadtxt(fpath, dtype='f')
         for k in set(assign):
@@ -183,7 +183,7 @@ def get_params(folder, threshold, max_k):
                 thetas[k] = P[assign == k][:,i].mean()
                 min_pts[k] = i
     
-    for k in xrange(max_k):
+    for k in range(max_k):
         if k not in thetas:
             thetas[k] = 1.0 / len(set(assign))
             min_pts[k] = 0

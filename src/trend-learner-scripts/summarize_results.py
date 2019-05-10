@@ -19,24 +19,24 @@ def main(tseries_fpath, base_folder):
     cluster_mapping = []
     C_base = np.loadtxt(os.path.join(folders[0], 'ksc/cents.dat'))
     
-    for i in xrange(num_folders):
+    for i in range(num_folders):
         Ci = np.loadtxt(os.path.join(folders[i], 'ksc/cents.dat'))
 
         dists = dist.dist_all(Ci, C_base, rolling=True)[0]
         closest = dists.argmin(axis=1)
         
         cluster_mapping.append({})
-        for k in xrange(Ci.shape[0]):
+        for k in range(Ci.shape[0]):
             cluster_mapping[i][k] = closest[k]
     
     y_true_all = []
     y_pred_all = []
-    for i in xrange(num_folders):
+    for i in range(num_folders):
         y_true = np.loadtxt(os.path.join(folders[i], 'ksc/test_assign.dat'))
         y_pred = np.loadtxt(os.path.join(folders[i], \
                 'cls-res-fitted-50/pred.dat'))
         
-        for j in xrange(y_true.shape[0]):
+        for j in range(y_true.shape[0]):
             y_true[j] = cluster_mapping[i][y_true[j]]
             if y_pred[j] != -1:
                 y_pred[j] = cluster_mapping[i][y_pred[j]]

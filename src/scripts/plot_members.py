@@ -40,7 +40,7 @@ def main(tseries_fpath, assign_fpath, centroids_fpath, plot_foldpath):
 
     num_classes = len(set(y))
     
-    for k in xrange(num_classes):
+    for k in range(num_classes):
         centroid_plot_foldpath = os.path.join(plot_foldpath, str(k))
         os.mkdir(centroid_plot_foldpath)
 
@@ -53,7 +53,7 @@ def main(tseries_fpath, assign_fpath, centroids_fpath, plot_foldpath):
         np.random.shuffle(sample_rows)        
         
         members_to_plot = members[sample_rows[:10]]
-        for i in xrange(members_to_plot.shape[0]):
+        for i in range(members_to_plot.shape[0]):
             print(k, i)
             plot_series(members_to_plot[i], centroid_plot_foldpath, 'ex-%d' % i)
             

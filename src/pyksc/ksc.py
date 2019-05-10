@@ -48,11 +48,11 @@ def _compute_centroids(tseries, assign, num_clusters, to_shift=None):
     #TODO: this method can be cythonized and done in parallel
     shifted = tseries
     if to_shift is not None:
-        for i in xrange(tseries.shape[0]):
+        for i in range(tseries.shape[0]):
             shifted[i] = shift(tseries[i], to_shift[i], rolling=True)
 
     #compute centroids
-    for k in xrange(num_clusters):
+    for k in range(num_clusters):
         members = shifted[assign == k]
         if members.any():
             num_members = 0
@@ -154,7 +154,7 @@ def _base_ksc(tseries, initial_centroids, n_iters=-1):
         
         assign = cent_dists.argmin(axis=0)
         best_shift = np.ndarray(num_series, dtype='i')
-        for i in xrange(shifts.shape[1]):
+        for i in range(shifts.shape[1]):
             best_shift[i] = shifts[assign[i], i]
         
         #check if converged, if not compute new centroids
@@ -214,7 +214,7 @@ def ksc(tseries, num_clusters, n_iters=-1, n_runs=10):
     best_shift = None
     best_dist = None
 
-    for _ in xrange(n_runs):
+    for _ in range(n_runs):
         assign = np.random.randint(0, num_clusters, tseries.shape[0])
         cents = _compute_centroids(tseries, assign, num_clusters)
 
@@ -278,9 +278,9 @@ def inc_ksc(tseries, num_clusters, n_iters=-1, num_wavelets=2):
     dhw_series = []
     dhw_series.append(tseries)
     previous = tseries
-    for _ in xrange(num_wavelets):
+    for _ in range(num_wavelets):
         new_series = []
-        for j in xrange(tseries.shape[0]):
+        for j in range(tseries.shape[0]):
             wave = transform(previous[j])[0]
             new_series.append(wave)
 

@@ -164,9 +164,9 @@ def clf_summary(mean_scores, ci_scores):
     buff = cStringIO.StringIO()
     try:
         print('class \tprecision \trecall \tf1 score \tsupport', file=buff)
-        for j in xrange(mean_scores.shape[1]):
+        for j in range(mean_scores.shape[1]):
             print(j, end="\t", file=buff)
-            for i in xrange(mean_scores.shape[0]):
+            for i in range(mean_scores.shape[0]):
                 print('%.3f +- %.3f' % (mean_scores[i, j], ci_scores[i, j]), 
                       end="\t", file=buff)
             print(file=buff)

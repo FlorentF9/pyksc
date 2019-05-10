@@ -47,14 +47,14 @@ def main(tseries_fpath, plot_foldpath):
     costs_array = np.zeros(shape=(25, n_clustering_vals))
     
     r = 0
-    for i in xrange(5):
+    for i in range(5):
         np.random.shuffle(sample_rows)
         rand_sample = sample_rows[:200]
         
         X_new = X[rand_sample]
         D_new = dist.dist_all(X_new, X_new, rolling=True)[0]
         
-        for j in xrange(5):
+        for j in range(5):
             for k in clust_range:
                 intra, inter, bcv, cost = run_clustering(X_new, k, D_new)
                 

@@ -119,7 +119,7 @@ def generate_data_plot(to_plot, sum_classes, labels, classes):
     colors = ['b', 'g', 'm', 'y']
     
     total = 0        
-    for class_num in xrange(num_classes):
+    for class_num in range(num_classes):
         color = colors[class_num]
         
         data_plot = []
@@ -157,7 +157,7 @@ def allchisq(to_plot, sum_classes, labels, classes):
     totals = []
     for label in labels:
         sum_ = 0
-        for class_num in xrange(num_classes):
+        for class_num in range(num_classes):
             sum_ += to_plot[class_num][label]
         totals.append(sum_)
 
@@ -166,7 +166,7 @@ def allchisq(to_plot, sum_classes, labels, classes):
     for i, t in enumerate(totals):
         probs.append( t / sum_totals)
     
-    for class_num in xrange(num_classes):
+    for class_num in range(num_classes):
         counts = []
         for label in labels:
             counts.append(to_plot[class_num][label])

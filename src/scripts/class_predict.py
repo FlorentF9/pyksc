@@ -33,7 +33,7 @@ def run_classifier(clf, X, y):
 
     class_matrices = []
     conf_matrices = []
-    for i in xrange(n_folds):
+    for i in range(n_folds):
         class_matrices.append(R_cv[i])
         
         conf_matrix_aux = 1.0 * C_cv[i]
@@ -59,9 +59,9 @@ def main(features_fpath, tseries_fpath, tags_fpath, classes_fpath, clf_name):
     print("Average confusion matrix with .95 confidence interval")
     print(" \ttrue ")
     print("predic")
-    for i in xrange(conf_means.shape[0]):
+    for i in range(conf_means.shape[0]):
         print(i, end="\t \t")
-        for j in xrange(conf_means.shape[1]):
+        for j in range(conf_means.shape[1]):
             print('%.3f +- %.3f' % (conf_means[i, j], conf_ci[i, j]), end="\t")
         print()
 

@@ -13,7 +13,7 @@ def cost(tseries, assign, centroids, dist_centroids=None):
         dist_centroids = dist_all(centroids, tseries)
     
     cost_f = 0.0
-    for i in xrange(num_series):
+    for i in range(num_series):
         k = assign[i]
         cost_f += dist_centroids[k, i] ** 2
     
@@ -27,7 +27,7 @@ def avg_intra_dist(tseries, assign, dists_all_pairs=None):
         dists_all_pairs = dist_all(tseries, tseries, rolling=True)[0]
     
     dists = []
-    for i in xrange(num_series):
+    for i in range(num_series):
         k = assign[i]
         members = assign == k
         dists_i = dists_all_pairs[i]
@@ -43,7 +43,7 @@ def avg_inter_dist(tseries, assign, dists_all_pairs=None):
         dists_all_pairs = dist_all(tseries, tseries, rolling=True)[0]
     
     dists = []
-    for i in xrange(num_series):
+    for i in range(num_series):
         k = assign[i]
         non_members = assign != k
         dists_i = dists_all_pairs[i]
@@ -66,7 +66,7 @@ def silhouette(tseries, assign, dists_all_pairs=None):
     num_series = tseries.shape[0]
     sils = np.zeros(num_series, dtype='f')
     labels = set(assign)
-    for i in xrange(num_series):
+    for i in range(num_series):
         
         k = assign[i]
         dists_i = dists_all_pairs[i]

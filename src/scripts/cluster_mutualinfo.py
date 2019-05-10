@@ -46,7 +46,7 @@ def load_text_file(features_fpath, classes, use):
         prob_col[token] = prob_col[token] / sum_col
          
         aux = np.zeros(num_classes, dtype='f')
-        for class_num in xrange(num_classes):
+        for class_num in range(num_classes):
             aux[class_num] = count_class_col[token][class_num]
         aux /= aux.sum()
         
@@ -98,7 +98,7 @@ def load_svm_file(features_fpath, classes):
         prob_col[token] = prob_col[token] / sum_col
          
         aux = np.zeros(num_classes, dtype='f')
-        for class_num in xrange(num_classes):
+        for class_num in range(num_classes):
             aux[class_num] = count_class_col[token][class_num]
         aux /= aux.sum()
         

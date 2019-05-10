@@ -52,7 +52,7 @@ def main(features_fpath, classes_fpath):
     
     # Print the feature ranking
     print("Feature ranking:")
-    for f in xrange(len(importances[indices])):
+    for f in range(len(importances[indices])):
         print("%d. feature %s (%f)" % (f + 1, names[indices[f]], 
                                        importances[indices[f]]))
         

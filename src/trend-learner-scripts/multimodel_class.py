@@ -22,7 +22,7 @@ def load_features(features_folder, best_by, gamma_max):
     matrices = {}
     feats_fname = 'year#%d.txt'
 
-    for i  in xrange(best_by.shape[0]):
+    for i  in range(best_by.shape[0]):
         bby = best_by[i]
 
         if bby == np.inf:
